@@ -25483,7 +25483,7 @@ function RegistrationView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
                         required: true,
                         type: "text",
-                        value: usernameReg,
+                        value: username,
                         onChange: (e)=>setUsernameReg(e.target.value)
                         ,
                         __source: {
@@ -25507,7 +25507,7 @@ function RegistrationView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
                         required: true,
                         type: "password",
-                        value: passwordReg,
+                        value: password,
                         onChange: (e)=>setPasswordReg(e.target.value)
                         ,
                         __source: {
@@ -25531,7 +25531,7 @@ function RegistrationView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
                         required: true,
                         type: "email",
-                        value: emailReg,
+                        value: email,
                         onChange: (e)=>setEmailReg(e.target.value)
                         ,
                         __source: {
@@ -25555,7 +25555,7 @@ function RegistrationView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
                         required: true,
                         type: "date",
-                        value: birthdayReg,
+                        value: birthday,
                         onChange: (e)=>setBirthdayReg(e.target.value)
                         ,
                         __source: {

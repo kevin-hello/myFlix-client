@@ -25392,7 +25392,7 @@ function LoginView(props) {
                                     columnNumber: 13
                                 },
                                 __self: this,
-                                children: "Submit"
+                                children: "Login"
                             })
                         ]
                     }),

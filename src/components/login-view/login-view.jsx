@@ -36,7 +36,7 @@ export function LoginView(props) {
               />
             </label>
             <button type="submit" onClick={handleSubmit}>
-              Submit
+              Login
             </button>
           </form>
         )}

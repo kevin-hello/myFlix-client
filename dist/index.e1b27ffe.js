@@ -25437,7 +25437,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","../registration-view/registration-view":"lGbHG","@parcel/transformer-js/src/esmodule-helpers.js":"jYMIM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5glG5","../registration-view/register-button":"2v74V"}],"lGbHG":[function(require,module,exports) {
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","../registration-view/registration-view":"lGbHG","../registration-view/register-button":"2v74V","@parcel/transformer-js/src/esmodule-helpers.js":"jYMIM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5glG5"}],"lGbHG":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$00e7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

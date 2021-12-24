@@ -17,27 +17,6 @@ export function RegistrationView(props) {
   };
 
   return (
-<<<<<<< Updated upstream
-    <form>
-      <label>
-        Username:
-        <input required type="text" value={usernameReg} onChange={e => setUsernameReg(e.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input required type="password" value={passwordReg} onChange={e => setPasswordReg(e.target.value)} />
-      </label>
-      <label>
-        Email
-        <input required type="email" value={emailReg} onChange={e => setEmailReg(e.target.value)} />
-      </label>
-      <label>
-        Birthday:
-        <input required type="date" value={birthdayReg} onChange={e => setBirthdayReg(e.target.value)} />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
-=======
        
             <Form>
             <Form.Group controlId="formUsername">
@@ -83,6 +62,5 @@ export function RegistrationView(props) {
           </Form>
         
             
->>>>>>> Stashed changes
   );
 }

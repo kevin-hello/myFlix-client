@@ -1,0 +1,26 @@
+
+#submit {
+  margin-top: 5px;
+}
+#register {
+  margin-top: 10px;
+  background-color: gray;
+  border-color: black;
+  color: white;
+}
+#submit {
+  margin-top: 5px;
+}
+body .card-text {
+  font-size: 0.9rem;
+}
+
+.main-view .card {
+  min-height: 1200px;
+  margin: 10px 0 10px 0;
+}
+
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.49898aa3.css.map */

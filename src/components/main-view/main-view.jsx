@@ -6,6 +6,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { Row, Col } from 'react-bootstrap';
 import './main-view.scss';
 
+
 export default class MainView extends React.Component {
 
   constructor(){
@@ -48,15 +49,16 @@ export default class MainView extends React.Component {
     if (movies.length === 0) return <div className="main-view"/>;
     
     return (
-      <Row className="main-view justify-content-md-center">
+      <Row auto className="main-view justify-content-md-center">
       {selectedMovie
         ? (
+          
           <Col md={8}>
             <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
           </Col>
         )
         : movies.map(movie => (
-          <Col xs={12} sm={6} md={4} lg={3}>
+          <Col className="moviecard" sm={12} md={6} lg={4} xl={3} >
             <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
           </Col>
         ))

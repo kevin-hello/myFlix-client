@@ -7,9 +7,11 @@ import {
   Container,
   Col,
   Card,
-  CardGroup,
+  CardGroup
 } from "react-bootstrap";
+// import { Navbar } from "../navbar/navbar";
 import './login-view.scss';
+
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
@@ -24,7 +26,7 @@ export function LoginView(props) {
   };
   return (
     <Container>
-        
+
           <CardGroup>
             <Card>
               <Card.Body>
@@ -75,5 +77,6 @@ export function LoginView(props) {
           </CardGroup>
         
     </Container>
+
   );
 }

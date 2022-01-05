@@ -11,15 +11,23 @@
 #submit {
   margin-top: 5px;
 }
-body .card-text {
-  font-size: 0.9rem;
+.movie-view span {
+  font-size: x-large;
 }
 
-.main-view .card {
-  min-height: 1200px;
-  margin: 10px 0 10px 0;
+.movie-view .movie-trailer {
+  font-size: x-large;
 }
 
+.movie-view #back {
+  font-size: x-large;
+  margin-top: 5px;
+}
+.main-view .moviecard {
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+  margin-bottom: 5px;
+}
 .my-flix {
   color: steelblue;
 }

@@ -22968,6 +22968,19 @@ class MovieCard extends _reactDefault.default.Component {
                                 },
                                 __self: this,
                                 children: movie.Description
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                className: "mt-auto",
+                                onClick: ()=>onMovieClick(movie)
+                                ,
+                                variant: "link",
+                                __source: {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 16,
+                                    columnNumber: 9
+                                },
+                                __self: this,
+                                children: "Open"
                             })
                         ]
                     })

@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 // import { Navbar } from "../navbar/navbar";
 import './login-view.scss';
+import axios from "axios";
 
 
 export function LoginView(props) {
@@ -19,14 +20,23 @@ export function LoginView(props) {
   const [state, setState] = useState("login");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
-    /* Send a request to the server for authentication / / then call props.onLoggedIn(username) */ props.onLoggedIn(
-      username
-    );
+    // send a request to the server for authentication 
+    axios.post("https://my-flix-movies-app.herokuapp.com/login",
+    {
+      Username: username,
+      Password: password
+
+    })
+    .then(response=>{
+      const data = response.data;
+      props.onLoggedIn(data);
+    })
+    .catch(e => {
+      console.log("no such user")
+    });
   };
   return (
     <Container>
-
           <CardGroup>
             <Card>
               <Card.Body>
@@ -75,8 +85,6 @@ export function LoginView(props) {
               </Card.Body>
             </Card>
           </CardGroup>
-        
     </Container>
-
   );
 }

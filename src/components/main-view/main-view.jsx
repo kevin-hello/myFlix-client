@@ -1,16 +1,16 @@
-import React from 'react';
-import axios from 'axios';
-import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
-import { Row, Col } from 'react-bootstrap';
-import './main-view.scss';
+import React from "react";
+import axios from "axios";
+import { LoginView } from "../login-view/login-view";
+import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
+import { Row, Col } from "react-bootstrap";
+import "./main-view.scss";
 
 
 export default class MainView extends React.Component {
 
   constructor(){
-    super();
+    super();0
     this.state = {
       movies: [],
       selectedMovie: null,
@@ -18,10 +18,11 @@ export default class MainView extends React.Component {
     };
   }
   getMovies(token) {
-    axios.get("https://my-flix-movies-app.herokuapp.com/movies",{
-    headers: { Authorization: "Bearer ${token}" }
+    axios.get("https://my-flix-movies-app.herokuapp.com/movies", 
+    {
+    headers: { Authorization: `Bearer ${token}`}
     })
-    .then(response =>{
+    .then(response => {
       // Assign the result to the state
       this.setState({
         movies: response.data
@@ -33,10 +34,10 @@ export default class MainView extends React.Component {
   }
 
   componentDidMount(){
-    let accessToken = localStorage.getItem('token');
+    let accessToken = localStorage.getItem("token");
     if (accessToken !== null) {
     this.setState({
-    user: localStorage.getItem('user')
+    user: localStorage.getItem("user")
     });
     this.getMovies(accessToken);
     }
@@ -44,12 +45,6 @@ export default class MainView extends React.Component {
   setSelectedMovie(movie) {
     this.setState({
       selectedMovie: movie
-    });
-  }
-
-  onLoggedIn(user) {
-    this.setState({
-      user
     });
   }
 
@@ -64,6 +59,15 @@ export default class MainView extends React.Component {
     this.getMovies(authData.token);
 
   }
+  
+  onLoggedOut() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    this.setState({
+      user:null
+    });
+  }
+
   render() {
     const { movies, selectedMovie, user} = this.state;
     
@@ -73,7 +77,7 @@ export default class MainView extends React.Component {
 
     if (movies.length === 0) return <div className="main-view"/>;
     
-    return (
+    return(
       <Row auto className="main-view justify-content-md-center">
       {selectedMovie
         ? (
@@ -92,3 +96,5 @@ export default class MainView extends React.Component {
   );
   }
 }
+
+{/* <button onClick={() => { this.onLoggedOut() }}>Logout</button> */}

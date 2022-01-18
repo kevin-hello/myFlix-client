@@ -22775,7 +22775,7 @@ class MainView extends _reactDefault.default.Component {
     getMovies(token) {
         _axiosDefault.default.get("https://my-flix-movies-app.herokuapp.com/movies", {
             headers: {
-                Authorization: "Bearer ${token}"
+                Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
             // Assign the result to the state
@@ -22787,10 +22787,10 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     componentDidMount() {
-        let accessToken = localStorage.getItem('token');
+        let accessToken = localStorage.getItem("token");
         if (accessToken !== null) {
             this.setState({
-                user: localStorage.getItem('user')
+                user: localStorage.getItem("user")
             });
             this.getMovies(accessToken);
         }
@@ -22798,11 +22798,6 @@ class MainView extends _reactDefault.default.Component {
     setSelectedMovie(movie1) {
         this.setState({
             selectedMovie: movie1
-        });
-    }
-    onLoggedIn(user) {
-        this.setState({
-            user
         });
     }
     onLoggedIn(authData) {
@@ -22814,6 +22809,13 @@ class MainView extends _reactDefault.default.Component {
         localStorage.setItem("user", authData.user.Username);
         this.getMovies(authData.token);
     }
+    onLoggedOut() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        this.setState({
+            user: null
+        });
+    }
     render() {
         const { movies , selectedMovie , user: user1  } = this.state;
         if (!user1) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
@@ -22821,7 +22823,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 70,
+                lineNumber: 74,
                 columnNumber: 23
             },
             __self: this
@@ -22833,7 +22835,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 72,
+                lineNumber: 76,
                 columnNumber: 31
             },
             __self: this
@@ -22842,7 +22844,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 74,
+                lineNumber: 78,
                 columnNumber: 37
             },
             __self: this
@@ -22852,7 +22854,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view justify-content-md-center",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 77,
+                lineNumber: 81,
                 columnNumber: 7
             },
             __self: this,
@@ -22860,7 +22862,7 @@ class MainView extends _reactDefault.default.Component {
                 md: 8,
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 81,
+                    lineNumber: 85,
                     columnNumber: 11
                 },
                 __self: this,
@@ -22871,7 +22873,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 82,
+                        lineNumber: 86,
                         columnNumber: 13
                     },
                     __self: this
@@ -22884,7 +22886,7 @@ class MainView extends _reactDefault.default.Component {
                     xl: 3,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 86,
+                        lineNumber: 90,
                         columnNumber: 11
                     },
                     __self: this,
@@ -22895,7 +22897,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 87,
+                            lineNumber: 91,
                             columnNumber: 13
                         },
                         __self: this

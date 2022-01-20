@@ -12,11 +12,39 @@ import {
 // import { Navbar } from "../navbar/navbar";
 import './login-view.scss';
 import axios from "axios";
+import propTypes from 'prop-types';
+
 
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+//hook for each input
+  const [ usernameErr, setUsernameErr ] = useState("");
+  const [ passwordErr, setPasswordErr ] = useState("");
+
+// validate user inputs
+
+  const validate =() => {
+    let isReq = true; 
+    if (!username) {
+      setUsernameErr("Username Required");
+      isReq = false;
+    }else if (username.length < 4) {
+      setUsernameErr("Username must be at least 4 characters long");
+      isReq = false;
+    }
+    if(!password){
+      setPasswordErr("Password Required");
+      isReq = false;
+    } else if(password.length < 6){
+      setPasswordErr("Password must be at least 6 characters long");
+    isReq = false; 
+  }
+  return isReq;
+  }
+
+
   const [state, setState] = useState("login");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,10 +80,13 @@ export function LoginView(props) {
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Username"
-                        required
+                        placeholder="Enter Username"
+                        
                       />
+                      {/* code to display validation error message */}
+                      {usernameErr && <p>{usernameErr}</p>}
                     </Form.Group>
+
                     <Form.Group controlId="formPassword">
                       <Form.Label>Password:</Form.Label>
                       <Form.Control
@@ -63,8 +94,10 @@ export function LoginView(props) {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
-                        required
+                        
                       />
+                      {/* code to display validation error message */}
+                      {passwordErr && <p>{passwordErr}</p>}
                     </Form.Group>
                     <Button
                       id= "submit"
@@ -88,3 +121,10 @@ export function LoginView(props) {
     </Container>
   );
 }
+
+LoginView.propTypes = {
+  login: propTypes.shape({
+    Username: propTypes.string.isRequired,
+    Passwprd: propTypes.string.isRequired,
+  }),
+};

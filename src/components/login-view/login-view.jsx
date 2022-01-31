@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { RegistrationView } from "../registration-view/registration-view";
-import { RegisterButton } from "../registration-view/register-button";
 import {
   Form,
   Button,
@@ -125,6 +124,6 @@ export function LoginView(props) {
 LoginView.propTypes = {
   login: propTypes.shape({
     Username: propTypes.string.isRequired,
-    Passwprd: propTypes.string.isRequired,
+    Password: propTypes.string.isRequired,
   }),
 };

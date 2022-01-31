@@ -2,12 +2,6 @@
 #submit {
   margin-top: 5px;
 }
-#register {
-  margin-top: 10px;
-  background-color: gray;
-  border-color: black;
-  color: white;
-}
 #submit {
   margin-top: 5px;
 }
@@ -23,6 +17,7 @@
   font-size: x-large;
   margin-top: 5px;
 }
+
 .main-view .moviecard {
   padding-left: 2.5px;
   padding-right: 2.5px;

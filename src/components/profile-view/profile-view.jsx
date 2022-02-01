@@ -21,8 +21,29 @@ export class ProfileView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getUser()
+    this.getUser()
   }
+
+  getUser() {
+    const username = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
+      axios
+        .get(`https://my-flix-movies-app.herokuapp.com/users/${username}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => {
+          this.setState({
+            username: response.data.Username,
+            password: response.data.Password,
+            email: response.data.Email,
+            birthday: response.data.Birthday,
+            favorites: response.data.Favorites
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
 
   onRemoveFavorite = (e, movie) => {
     const username = localStorage.getItem('user');
@@ -41,6 +62,7 @@ export class ProfileView extends React.Component {
       console.log(error);
     });
   }
+
 
   deleteUser() {
     const confirmation = window.confirm("Are you sure you want to delete your account?");
@@ -111,11 +133,10 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { name, username, email, birthday, favorites  } = this.props
-console.log(this.props)
+    const { username, email, birthday, favorites } = this.state
+console.log(this.state)
 
     return (
-      
       <Container className="profile-view">
         <Row className="justify-content-md-center">
         <Col>
@@ -128,7 +149,58 @@ console.log(this.props)
         <h4>Birthday: {birthday}</h4>
         </Col>
         </Row>
-        
+
+        <div className="profileInfo ">
+        <Form className="user-form" onSubmit={(e) => this.editUser(e)}>
+          <div>
+            <h3>Update Profile</h3>
+          </div>
+            <Form.Group>
+              Username
+              <Form.Control type='text' name="Username" placeholder="New Username" onChange={(e) => this.setUsername(e.target.value)} required />
+            </Form.Group>
+
+            <Form.Group>
+              Password
+              <Form.Control type='password' name="Password" placeholder="New Password" onChange={(e) => this.setPassword(e.target.value)} required />
+
+            </Form.Group>
+            <Form.Group>
+              Email Address
+              <Form.Control type='email' name="Email" placeholder="New Email" onChange={(e) => this.setEmail(e.target.value)} required />
+
+            </Form.Group>
+            <Form.Group>
+              Birthday
+              <Form.Control type='date' name="Birthday" onChange={(e) => this.setBirthday(e.target.value)} />
+            </Form.Group>
+          <Button variant="primary" type="submit">Update</Button>
+        </Form>
+        </div>
+
+        <Row>
+          <Col>
+            <Button variant="danger" type="submit" onClick={(e) => this.deleteUser()}>Delete Account</Button>
+          </Col>
+        </Row>
+        <div>
+          <h3>Favorite Movies</h3>
+          <Row>
+            { favorites && favorites.map((movie) => (
+              <Col sm={6} md={4} lg={4} key={movie._id}>
+              <div className="favoriteMoviediv" >
+                <MovieCard movie={movie} />
+                <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>
+                  Delete From Favorites
+                </Button>
+                </div>
+              </Col>
+            ))
+            }
+          </Row>
+        </div>
+
+
       </Container>
     );
   }

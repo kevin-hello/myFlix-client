@@ -10,7 +10,6 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { DirectorView } from "../director-view/director-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { GenreView } from "../genre-view/genre-view";
-import { UserUpdate } from "../user-update/user-update";
 import  Menubar  from "../navbar/menubar";
 import { Row, Col, Container } from "react-bootstrap";
 
@@ -48,6 +47,7 @@ export default class MainView extends React.Component {
 
   }
   
+
   // onLoggedOut() {
   //   localStorage.removeItem("token");
   //   localStorage.removeItem("user");

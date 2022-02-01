@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
+import propTypes from 'prop-types';
+
 import { RegistrationView } from "../registration-view/registration-view";
 import {
   Form,
@@ -10,8 +13,7 @@ import {
 } from "react-bootstrap";
 // import { Navbar } from "../navbar/navbar";
 import './login-view.scss';
-import axios from "axios";
-import propTypes from 'prop-types';
+
 
 
 
@@ -126,4 +128,4 @@ LoginView.propTypes = {
     Username: propTypes.string.isRequired,
     Password: propTypes.string.isRequired,
   }),
-};
+}; 

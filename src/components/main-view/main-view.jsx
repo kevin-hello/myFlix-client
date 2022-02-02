@@ -10,7 +10,7 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { DirectorView } from "../director-view/director-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { GenreView } from "../genre-view/genre-view";
-import  Menubar  from "../navbar/menubar";
+import { Menubar } from "../navbar/menubar";
 import { Row, Col, Container } from "react-bootstrap";
 
 import "./main-view.scss";

@@ -104,9 +104,9 @@ export default class MainView extends React.Component {
             <MovieView movie={movies.find(m => m._id === match.params.id)} onBackClick={() => history.goBack()} />
           </Col>
         }} />
-        <Route path="/directors/:name" render={({ match }) => {
+        <Route path="/genres/:name" render={({ match }) => {
           return <Col>
-          <DirectorView movie={movies.find(m => m._id === match.params.id)} onBackClick={() => history.goBack()} />
+          <GenreView movie={movies.find(m => m._id === match.params.id)} onBackClick={() => history.goBack()} />
           </Col>
         }} />
         <Route path="/directors/:name" render={({ match }) => {
@@ -120,40 +120,6 @@ export default class MainView extends React.Component {
           <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
           </Col>
         }} />
-        <Route path={`/user-update/${user}`} render ={({ match, history }) => {
-          if (!user) return <Redirect to="/" />
-          return <Col>
-            <UserUpdate user={user} onBackClick={() => history.goBack()} />
-          </Col>
-        }} />
-
-
-
-
-
-
-
-
-
-
-        {/* <Route exact path="/movies/:movieId" render={({ match }) => {
-          return <Col md={8}>
-          <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()}/>
-          </Col>
-        }} />
-        <Route exact path="/genres/:name" render={({match}) => {
-        // if (movies.length === 0) return <div className="main-view" />;
-        return <Col md={8}>
-          <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()}/>
-        </Col>
-
-        }} />
-        <Route path="/directors/:name" render={({ match }) => {
-        // if (movies.length === 0) return <div className="main-view" />;
-        return <Col md={8}>
-        <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()}/>
-        </Col>
-        }} /> */}
         </Row>
         </Container>
       </Router>
@@ -162,34 +128,5 @@ export default class MainView extends React.Component {
     )
 
   }
-
-  // render() {
-  //   const { movies, selectedMovie, user} = this.state;
-    
-  //   if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-
-  //   if (selectedMovie) return <MovieView movie={selectedMovie}  onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />;
-
-  //   if (movies.length === 0) return <div className="main-view"/>;
-    
-  //   return(
-  //     <Row auto className="main-view justify-content-md-center">
-  //     {selectedMovie
-  //       ? (
-          
-  //         <Col md={8}>
-  //           <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-  //         </Col>
-  //       )
-  //       : movies.map(movie => (
-  //         <Col className="moviecard" sm={12} md={6} lg={4} xl={3} >
-  //           <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-  //         </Col>
-  //       ))
-  //     }
-  //   </Row>
-  // );
-  // }
 }
 
-{/* <button onClick={() => { this.onLoggedOut() }}>Logout</button> */}

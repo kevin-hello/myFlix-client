@@ -4,6 +4,12 @@ import axios from 'axios';
 import {Button, Card, Col, Form, Row, Container} from 'react-bootstrap';
 
 import { MovieCard } from '../movie-card/movie-card';
+//profile view components 
+import { UserInfo } from './user-info';
+import { FavoriteMoviesList } from './favorite-movies-list';
+
+
+
 
 // styling 
 import './profile-view.scss';
@@ -138,65 +144,37 @@ console.log(this.state)
 
     return (
       <Container className="profile-view">
-        <Row className="justify-content-md-center">
-        <Col>
-        <div className="profileContent">
-          <h1>My Profile</h1>
-        </div>
-        <h4>Username: {username}</h4>
-        <h4>Password: ******</h4>
-        <h4>Email: {email}</h4>
-        <h4>Birthday: {birthday}</h4>
-        </Col>
-        </Row>
-
-        <div className="profileInfo ">
+        <UserInfo username={ username } email={ email } birthday={ birthday }/>
+      <div className="profileInfo ">
         <Form className="user-form" onSubmit={(e) => this.editUser(e)}>
           <div>
             <h3>Update Profile</h3>
           </div>
-            <Form.Group>
+              <Form.Group>
               Username
               <Form.Control type='text' name="Username" placeholder="New Username" onChange={(e) => this.setUsername(e.target.value)} required />
-            </Form.Group>
-
-            <Form.Group>
+              </Form.Group>
+              <Form.Group>
               Password
               <Form.Control type='password' name="Password" placeholder="New Password" onChange={(e) => this.setPassword(e.target.value)} required />
-
-            </Form.Group>
-            <Form.Group>
+              </Form.Group>
+              <Form.Group>
               Email Address
               <Form.Control type='email' name="Email" placeholder="New Email" onChange={(e) => this.setEmail(e.target.value)} required />
-
-            </Form.Group>
-            <Form.Group>
+              </Form.Group>
+              <Form.Group>
               Birthday
               <Form.Control type='date' name="Birthday" onChange={(e) => this.setBirthday(e.target.value)} />
-            </Form.Group>
+              </Form.Group>
           <Button variant="primary" type="submit">Update</Button>
         </Form>
-        </div>
-
+      </div>
         <Row>
           <Col>
             <Button variant="danger" type="submit" onClick={(e) => this.deleteUser()}>Delete Account</Button>
           </Col>
         </Row>
-        <div>
-          <h3>Favorite Movies</h3>
-          <Row>
-          { FavoriteMovies && FavoriteMovies.map((movie) => (
-        <Col md={3} key={movie._id}>
-        <div className="favoriteMoviediv" >
-          <MovieCard movie={movie} />
-          <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>
-            Delete From Favorites
-          </Button>
-          </div>
-        </Col> ))}
-          </Row>
-        </div>
+        <FavoriteMoviesList FavoriteMovies={ FavoriteMovies }/>
       </Container>
     );
   }

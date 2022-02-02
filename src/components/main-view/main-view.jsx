@@ -76,7 +76,7 @@ export default class MainView extends React.Component {
      const { movies, user } = this.state;
    
     return (
-      <Router>
+      <Router basename="/myFlix-client">
         <Menubar user={user}/>
         <Container>
         <Row className="main-view justify-content-md-center">

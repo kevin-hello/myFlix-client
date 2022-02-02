@@ -1,28 +1,22 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
 import propTypes from 'prop-types';
 
-import { RegistrationView } from "../registration-view/registration-view";
-import {
-  Form,
-  Button,
-  Container,
-  Col,
-  Card,
-  CardGroup
-} from "react-bootstrap";
-// import { Navbar } from "../navbar/navbar";
+import { BrowserRouter as Router } from 'react-router-dom';
+// UI Elements
+import { Form, Button } from 'react-bootstrap';
+//styling
 import './login-view.scss';
 
 
 
 
 export function LoginView(props) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 //hook for each input
-  const [ usernameErr, setUsernameErr ] = useState("");
-  const [ passwordErr, setPasswordErr ] = useState("");
+  const [ usernameErr, setUsernameErr ] = useState('');
+  const [ passwordErr, setPasswordErr ] = useState('');
 
 // validate user inputs
 
@@ -45,12 +39,10 @@ export function LoginView(props) {
   return isReq;
   }
 
-
-  const [state, setState] = useState("login");
   const handleSubmit = (e) => {
     e.preventDefault();
     // send a request to the server for authentication 
-    axios.post("https://my-flix-movies-app.herokuapp.com/login",
+    axios.post('https://my-flix-movies-app.herokuapp.com/login',
     {
       Username: username,
       Password: password
@@ -65,16 +57,9 @@ export function LoginView(props) {
     });
   };
   return (
-    <Container>
-          <CardGroup>
-            <Card>
-              <Card.Body>
-                <Card.Title>
-                  {state === "login" ? "Login" : "Create Account"}
-                </Card.Title>
-
-                {state === "login" && (
+    <Router>
                   <Form>
+                    <h1>Login</h1>
                     <Form.Group controlId="formUsername">
                       <Form.Label>Username:</Form.Label>
                       <Form.Control
@@ -82,7 +67,6 @@ export function LoginView(props) {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Enter Username"
-                        
                       />
                       {/* code to display validation error message */}
                       {usernameErr && <p>{usernameErr}</p>}
@@ -95,31 +79,23 @@ export function LoginView(props) {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
-                        
-                      />
+                        />
                       {/* code to display validation error message */}
                       {passwordErr && <p>{passwordErr}</p>}
                     </Form.Group>
                     <Button
                       id= "submit"
-                      variant="primary"
+                      variant="primary link"
                       type="submit"
                       onClick={handleSubmit}
                     >
                       Submit
                     </Button>
+                    <Button variant="secondary" type="button" onClick={() => {window.location.href="/register"}}>
+                      Register
+                    </Button>
                   </Form>
-                )}
-
-                {state === "login" && (
-                  <RegisterButton addTrip={() => setState("create Account")} />
-                )}
-
-                {state === "create Account" && <RegistrationView />}
-              </Card.Body>
-            </Card>
-          </CardGroup>
-    </Container>
+          </Router>
   );
 }
 
@@ -128,4 +104,5 @@ LoginView.propTypes = {
     Username: propTypes.string.isRequired,
     Password: propTypes.string.isRequired,
   }),
+  onLoggedIn: propTypes.func.isRequired,
 }; 

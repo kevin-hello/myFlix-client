@@ -2,9 +2,6 @@
 #submit {
   margin-top: 5px;
 }
-#submit {
-  margin-top: 5px;
-}
 .movie-view span {
   font-size: x-large;
 }
@@ -15,6 +12,9 @@
 
 .movie-view #back {
   font-size: x-large;
+  margin-top: 5px;
+}
+#submit {
   margin-top: 5px;
 }
 

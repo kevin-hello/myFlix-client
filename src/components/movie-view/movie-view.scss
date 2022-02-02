@@ -9,4 +9,29 @@
 .movie-view #back {
   font-size: x-large;
   margin-top: 5px;
+
+  border: 0px solid transparent;
 }
+.movie-genre Button{
+  font-size: x-large;
+  vertical-align: auto;
+  vertical-align: top;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  border: 0px solid transparent;
+}
+.movie-director Button{
+font-size: x-large;
+vertical-align: top;
+padding-top: 0%;
+padding-bottom: 0%;
+border: 0px solid transparent;
+}
+
+.movie-view #favmovie{
+  font-size: x-large;
+  border: 0px solid transparent;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+

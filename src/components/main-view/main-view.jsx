@@ -88,19 +88,19 @@ export default class MainView extends React.Component {
           if (movies.length === 0) return <div className="main-view"/>; 
 
           return movies.map(m => (
-            <Col md={3} key={m._id}>
+            <Col md={4} key={m._id}>
             <MovieCard movie={m}/>
             </Col>
           ))
         }} />
         <Route path="/register" render={() => {
           if (user) return <Redirect to="/" />
-          return <Col lg={8} md={8}>
+          return <Col>
             <RegistrationView />
           </Col>
         }} />
         <Route path="/movies/:id" render={({ match, history}) => {
-          return <Col md={8}>
+          return <Col md={12}>
             <MovieView movie={movies.find(m => m._id === match.params.id)} onBackClick={() => history.goBack()} />
           </Col>
         }} />

@@ -16,7 +16,7 @@ export class ProfileView extends React.Component {
       password: null,
       email: null,
       birthday: null,
-      favorites: [],
+      FavoriteMovies: [],
     };
   }
 
@@ -37,7 +37,7 @@ export class ProfileView extends React.Component {
             password: response.data.Password,
             email: response.data.Email,
             birthday: response.data.Birthday,
-            favorites: response.data.Favorites
+            FavoriteMovies: response.data.FavoriteMovies
           });
         })
         .catch(function (error) {
@@ -69,7 +69,7 @@ export class ProfileView extends React.Component {
     if (confirmation) {
       const token = localStorage.getItem('token');
       const user = localStorage.getItem('user');
-      axios.delete('https://my-flix-movies-app.herokuapp.com/users/${username}',
+      axios.delete(`https://my-flix-movies-app.herokuapp.com/users/${username}`,
       { headers: {Authorization: `Bearer ${token}`} }
       )
       .then(() => {
@@ -133,7 +133,7 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { username, email, birthday, favorites } = this.state
+    const { username, email, birthday, FavoriteMovies } = this.state
 console.log(this.state)
 
     return (
@@ -186,22 +186,19 @@ console.log(this.state)
         <div>
           <h3>Favorite Movies</h3>
           <Row>
-            { favorites && favorites.map((movie) => (
-              <Col sm={6} md={4} lg={4} key={movie._id}>
-              <div className="favoriteMoviediv" >
-                <MovieCard movie={movie} />
-                <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>
-                  Delete From Favorites
-                </Button>
-                </div>
-              </Col>
-            ))
-            }
+          { FavoriteMovies && FavoriteMovies.map((movie) => (
+        <Col md={3} key={movie._id}>
+        <div className="favoriteMoviediv" >
+          <MovieCard movie={movie} />
+          <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>
+            Delete From Favorites
+          </Button>
+          </div>
+        </Col> ))}
           </Row>
         </div>
-
-
       </Container>
     );
   }
 }
+

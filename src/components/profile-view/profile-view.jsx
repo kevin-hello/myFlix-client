@@ -8,9 +8,6 @@ import { MovieCard } from '../movie-card/movie-card';
 import { UserInfo } from './user-info';
 import { FavoriteMoviesList } from './favorite-movies-list';
 
-
-
-
 // styling 
 import './profile-view.scss';
 

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
+// styling 
+import './profile-view.scss';
+
 export function UserInfo({username, email, birthday}){
 
   return(

@@ -5,6 +5,9 @@ import axios from 'axios';
 //movie card component for favorites list 
 import { MovieCard } from '../movie-card/movie-card';
 
+// styling 
+import './profile-view.scss';
+
 export function FavoriteMoviesList({ FavoriteMovies }) {
 
 

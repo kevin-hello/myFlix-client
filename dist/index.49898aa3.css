@@ -14,17 +14,17 @@
   font-size: x-large;
   margin-top: 5px;
 }
+.main-view .moviecard {
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+  margin-bottom: 5px;
+}
 #submit {
   margin-top: 5px;
 }
 
 
 
-.main-view .moviecard {
-  padding-left: 2.5px;
-  padding-right: 2.5px;
-  margin-bottom: 5px;
-}
 .my-flix {
   color: steelblue;
 }

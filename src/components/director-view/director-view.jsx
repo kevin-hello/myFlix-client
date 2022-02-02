@@ -25,7 +25,7 @@ export function DirectorView (props) {
             <span className="value">{director.Birth}</span>      
           </div>
           <Link to={`/`}>
-            <Button className='return' variant='dark'>Return</Button>
+            <Button id="return" variant='dark'>Return</Button>
           </Link>
       </div>
  )}

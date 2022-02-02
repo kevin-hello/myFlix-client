@@ -89,9 +89,9 @@ export function LoginView(props) {
                       type="submit"
                       onClick={handleSubmit}
                     >
-                      Submit
+                      Login
                     </Button>
-                    <Button variant="secondary" type="button" onClick={() => {window.location.href="/register"}}>
+                    <Button variant="secondary" id="register" type="button" onClick={() => {window.location.href="/register"}}>
                       Register
                     </Button>
                   </Form>

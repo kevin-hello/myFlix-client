@@ -62,8 +62,8 @@ constructor(props) {
         <div className="movie-trailer">
         <a href={movie.Trailer} target="_blank">Watch Trailer</a>
         </div>
-        <button id="back" onClick={() => { onBackClick(null);}}>Back</button>
-        <Button variant="primary" value={movie._id} onClick={(e) => this.addFavoriteMovie(e, movie)}>Add to favorites</Button>
+        <Button variant="primary" id="back" onClick={() => { onBackClick(null);}}>Back</Button>
+        <Button variant="danger" id="favmovie" value={movie._id} onClick={(e) => this.addFavoriteMovie(e, movie)}>Add to favorites</Button>
        </div>
     );
   }

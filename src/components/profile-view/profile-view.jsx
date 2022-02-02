@@ -142,7 +142,7 @@ console.log(this.state)
     return (
       <Container className="profile-view">
         <UserInfo username={ username } email={ email } birthday={ birthday }/>
-      <div className="profileInfo ">
+      <div className="profile-info">
         <Form className="user-form" onSubmit={(e) => this.editUser(e)}>
           <div>
             <h3>Update Profile</h3>
@@ -163,12 +163,12 @@ console.log(this.state)
               Birthday
               <Form.Control type='date' name="Birthday" onChange={(e) => this.setBirthday(e.target.value)} />
               </Form.Group>
-          <Button variant="primary" type="submit">Update</Button>
+          <Button id="update" variant="primary" type="submit">Update</Button>
         </Form>
       </div>
         <Row>
           <Col>
-            <Button variant="danger" type="submit" onClick={(e) => this.deleteUser()}>Delete Account</Button>
+            <Button id="delete" variant="danger" type="submit" onClick={(e) => this.deleteUser()}>Delete Account</Button>
           </Col>
         </Row>
         <FavoriteMoviesList FavoriteMovies={ FavoriteMovies }/>

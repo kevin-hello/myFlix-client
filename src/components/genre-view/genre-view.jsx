@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 //UI elements
-import { Row, Col, Button} from 'react-bootstrap';
+import { Col, Button} from 'react-bootstrap';
 //styling
 import "./genre-view.scss";
 
@@ -10,9 +10,7 @@ export function GenreView(props) {
   console.log(genre,'genre')
   
   return(
-    <>
-    <Row className="genre-view">
-      <Col>
+    <Col className="genre-view">
       <div className="genre-name">
         <span className="label">Name: </span>
         <span className="value">{genre.Name}</span>
@@ -22,10 +20,9 @@ export function GenreView(props) {
         <span className="value">{genre.Description}</span>
       </div>
       <Link to={`/`}>
-      <Button className='return' variant='dark'>Return</Button>
+      <Button id="return" variant='dark'>Return</Button>
       </Link>
-      </Col>
-    </Row>
-    </>
+
+    </Col>
   );
 }

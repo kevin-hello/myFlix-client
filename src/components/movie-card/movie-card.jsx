@@ -17,7 +17,6 @@ export class MovieCard extends React.Component {
         <Link to={`/movies/${movie._id}`}>
           <Button variant="link">Open</Button>
         </Link>
-        {/* <Button className="mt-auto"onClick={() => onMovieClick(movie)} variant="link">Open</Button> */}
       </Card.Body>
       </Card>
     );

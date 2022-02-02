@@ -2,15 +2,6 @@
 #submit {
   margin-top: 5px;
 }
-#register {
-  margin-top: 10px;
-  background-color: gray;
-  border-color: black;
-  color: white;
-}
-#submit {
-  margin-top: 5px;
-}
 .movie-view span {
   font-size: x-large;
 }
@@ -28,6 +19,12 @@
   padding-right: 2.5px;
   margin-bottom: 5px;
 }
+#submit {
+  margin-top: 5px;
+}
+
+
+
 .my-flix {
   color: steelblue;
 }

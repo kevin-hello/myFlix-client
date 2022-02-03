@@ -3,6 +3,7 @@ import axios from 'axios';
 import propTypes from 'prop-types';
 
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // UI Elements
 import { Form, Button } from 'react-bootstrap';
 //styling
@@ -57,7 +58,7 @@ export function LoginView(props) {
     });
   };
   return (
-    <Router>
+    <Router basename="/myFlix-client">
                   <Form>
                     <h1>Login</h1>
                     <Form.Group controlId="formUsername">
@@ -90,11 +91,12 @@ export function LoginView(props) {
                       onClick={handleSubmit}
                     >
                       Login
-                    </Button>
-                    <Button variant="secondary" id="register" type="button" onClick={() => {window.location.href="/register"}}>
-                      Register
-                    </Button>
+                      </Button>
                   </Form>
+
+                    <Link to={`/register`} >
+                      Register
+                    </Link>
           </Router>
   );
 }

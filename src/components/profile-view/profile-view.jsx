@@ -47,7 +47,23 @@ export class ProfileView extends React.Component {
         });
     }
 
-
+  onRemoveFavorite = (e, movie) => {
+    const username = localStorage.getItem('user');
+    console.log(username)
+    const token = localStorage.getItem('token');
+    console.log(this.props)
+    axios.delete(`https://my-flix-movies-app.herokuapp.com/users/${username}/movies/${movie._id}`, 
+    { headers: { Authorization: `Bearer ${token}` } }
+    )
+    .then((response) => {
+      console.log(response);
+      alert("movie has been removed from favorites");
+      this.componentDidMount();
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
 
   deleteUser() {
@@ -119,7 +135,7 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { username, email, birthday, FavoriteMovies } = this.state
+    const { username, email, birthday, FavoriteMovies, onRemoveFavorite } = this.state
 console.log(this.state)
 
     return (
@@ -154,7 +170,7 @@ console.log(this.state)
             <Button id="delete" variant="danger" type="submit" onClick={(e) => this.deleteUser()}>Delete Account</Button>
           </Col>
         </Row>
-        <FavoriteMoviesList FavoriteMovies={ FavoriteMovies }/>
+        <FavoriteMoviesList FavoriteMovies={ FavoriteMovies } onRemoveFavorite={ onRemoveFavorite } />
       </Container>
     );
   }

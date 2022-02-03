@@ -80,7 +80,7 @@ export class ProfileView extends React.Component {
         alert(user + "has been deleted.");
         localStorage.removeItem('user');
         localStorage.removeItem('token');
-        window.open('/','_self'); 
+        window.open("/myFlix-client/",'_self'); 
       })
       .catch(function(error) {
         console.log(error);
@@ -113,7 +113,7 @@ export class ProfileView extends React.Component {
       console.log(data);
       console.log(this.state.Username);
       alert('Profile updated');
-      window.location.reload();
+      window.open(`/myFlix-client/users/${username}`,'_self'); 
     })
     .catch( function(error){
       console.log(error);
@@ -179,7 +179,7 @@ console.log(this.state)
         <Col md={4} key={movie._id}>
         <div className="favoriteMovieDiv" >
         <MovieCard movie={movie} />
-        <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => onRemoveFavorite(e, movie)}>
+        <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>
         Delete From Favorites
         </Button>
         </div>

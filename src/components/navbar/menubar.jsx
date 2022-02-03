@@ -1,5 +1,6 @@
 import React from 'react';
-import {Navbar, Container, Nav, Button} from 'react-bootstrap';
+import {Navbar, Nav, Button} from 'react-bootstrap';
+
 
 export function Menubar ({user}) {
 
@@ -23,7 +24,6 @@ export function Menubar ({user}) {
 
   return(
     <Navbar className="main-nav" sticky="top" bg="dark" expand="lg" variant="dark">
-      <Container>
       <Navbar.Brand className="navbar-logo" href="/">myFlix</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -35,14 +35,13 @@ export function Menubar ({user}) {
                 <Button variant="link" onClick={() => { onLoggedOut() }}>Logout</Button>
               )}
               {!isAuth() && (
-                <Nav.Link href="/myFlix-client/">Login</Nav.Link>
+                <Nav.Link href="/">Login</Nav.Link>
               )}
                {!isAuth() && (
-                <Nav.Link href="/myFlix-client/register">Register</Nav.Link>
+                <Nav.Link href="/register">Register</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse> 
-      </Container>
     </Navbar>
   );
 }

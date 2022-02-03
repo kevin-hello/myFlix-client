@@ -6,7 +6,7 @@ export function Menubar ({user}) {
 
   const onLoggedOut = () => {
     localStorage.clear();
-    window.open("/", "_self");
+    window.open("/myFlix-client/", "_self");
   }
 
 

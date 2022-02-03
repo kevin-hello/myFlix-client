@@ -8,7 +8,7 @@ import { MovieCard } from '../movie-card/movie-card';
 // styling 
 import './profile-view.scss';
 
-export function FavoriteMoviesList({ FavoriteMovies }) {
+export function FavoriteMoviesList({ FavoriteMovies, onRemoveFavorite }) {
 
 
 return(

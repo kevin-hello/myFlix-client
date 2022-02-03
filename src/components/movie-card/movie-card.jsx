@@ -6,16 +6,18 @@ import './movie-card.scss';
 import { Link } from 'react-router-dom';
 
 export class MovieCard extends React.Component {
+
   render() {
     const { movie } = this.props;
     return (
+
     <Card className="h-100">
       <Card.Img variant="top" src={movie.ImagePath}/>
       <Card.Body className="d-flex flex-column">
         <Card.Title>{movie.Title}</Card.Title>
         <Card.Text>{movie.Description}</Card.Text>
         <Link to={`/movies/${movie._id}`}>
-          <Button id="seemore" variant="link">See More</Button>
+          <Button id="seemore" variant="link" >See More</Button>
         </Link>
       </Card.Body>
       </Card>

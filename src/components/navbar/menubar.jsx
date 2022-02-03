@@ -1,7 +1,8 @@
 import React from 'react';
-import {Navbar, Container, Nav, Button} from 'react-bootstrap';
+import {Navbar, Nav, Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export default function Menubar ({user}) {
+export function Menubar ({user}) {
 
   const onLoggedOut = () => {
     localStorage.clear();
@@ -23,26 +24,37 @@ export default function Menubar ({user}) {
 
   return(
     <Navbar className="main-nav" sticky="top" bg="dark" expand="lg" variant="dark">
-      <Container>
-      <Navbar.Brand className="navbar-logo" href="/">myFlix</Navbar.Brand>
+      <Link to={`/`}>
+      <Navbar.Brand className="navbar-logo">myFlix</Navbar.Brand>
+      </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="ml-auto">
+            <Nav className="nav-list ml-auto">
               {isAuth() && (
-                <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>
+              <Link to={`/users/${user}`}>
+              <Button className="nav-item" variant="link">{user}</Button> 
+              </Link>
+//            <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>
               )}
               {isAuth() && (
-                <Button variant="link" onClick={() => { onLoggedOut() }}>Logout</Button>
+              <Link>
+              <Button variant="link" onClick={() => { onLoggedOut() }}>Logout</Button>
+              </Link>
               )}
               {!isAuth() && (
-                <Nav.Link href="/">Login</Nav.Link>
+              <Link to={`/`}>
+              <Button className="nav-item" variant="link">Login</Button> 
+              </Link>
+//            <Nav.Link href="/">Login</Nav.Link>
               )}
                {!isAuth() && (
-                <Nav.Link href="/register">Register</Nav.Link>
+              <Link to={`/register`}>
+              <Button className="nav-item" variant="link">Register</Button> 
+              </Link>
+//            <Nav.Link href="/register">Register</Nav.Link>  
               )}
             </Nav>
           </Navbar.Collapse> 
-      </Container>
     </Navbar>
   );
 }

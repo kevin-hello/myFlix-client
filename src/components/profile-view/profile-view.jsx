@@ -5,7 +5,9 @@ import {Button, Col, Form, Row, Container} from 'react-bootstrap';
 
 //profile view components 
 import { UserInfo } from './user-info';
-import { FavoriteMoviesList } from './favorite-movies-list';
+
+import { MovieCard } from '../movie-card/movie-card';
+
 
 // styling 
 import './profile-view.scss';
@@ -170,7 +172,20 @@ console.log(this.state)
             <Button id="delete" variant="danger" type="submit" onClick={(e) => this.deleteUser()}>Delete Account</Button>
           </Col>
         </Row>
-        <FavoriteMoviesList FavoriteMovies={ FavoriteMovies } onRemoveFavorite={ onRemoveFavorite } />
+        <div>
+        <h3>Favorite Movies</h3>
+        <Row>
+         { FavoriteMovies && FavoriteMovies.map((movie) => (
+        <Col md={4} key={movie._id}>
+        <div className="favoriteMovieDiv" >
+        <MovieCard movie={movie} />
+        <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => onRemoveFavorite(e, movie)}>
+        Delete From Favorites
+        </Button>
+        </div>
+        </Col> ))}
+        </Row>
+        </div>
       </Container>
     );
   }

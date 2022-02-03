@@ -154,7 +154,7 @@ console.log(this.state)
             <Button id="delete" variant="danger" type="submit" onClick={(e) => this.deleteUser()}>Delete Account</Button>
           </Col>
         </Row>
-        <FavoriteMoviesList FavoriteMovies={ FavoriteMovies } onRemoveFavorite={ onRemoveFavorite }/>
+        <FavoriteMoviesList FavoriteMovies={ FavoriteMovies }/>
       </Container>
     );
   }

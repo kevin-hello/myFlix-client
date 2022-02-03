@@ -31,23 +31,28 @@ export function Menubar ({user}) {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="nav-list ml-auto">
               {isAuth() && (
+              <Link to={`/`}>
+              <Button style={{color:"white"}} className="nav-item" variant="link">Movies</Button> 
+              </Link>
+              )}
+              {isAuth() && (
               <Link to={`/users/${user}`}>
-              <Button className="nav-item" variant="link">{user}</Button> 
+              <Button style={{color:"white"}} className="nav-item" variant="link">{user}</Button> 
               </Link>
               )}
               {isAuth() && (
               <Link>
-              <Button variant="link" onClick={() => { onLoggedOut() }}>Logout</Button>
+              <Button style={{color:"white"}} className="nav-item" variant="link" onClick={() => { onLoggedOut() }}>Logout</Button>
               </Link>
               )}
               {!isAuth() && (
               <Link to={`/`}>
-              <Button className="nav-item" variant="link">Login</Button> 
+              <Button style={{color:"white"}} className="nav-item" variant="link">Login</Button> 
               </Link>
               )}
                {!isAuth() && (
               <Link to={`/register`}>
-              <Button className="nav-item" variant="link">Register</Button> 
+              <Button style={{color:"white"}} className="nav-item" variant="link">Register</Button> 
               </Link>
               )}
             </Nav>

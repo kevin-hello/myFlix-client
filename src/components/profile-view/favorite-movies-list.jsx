@@ -19,7 +19,7 @@ return(
     <Col md={4} key={movie._id}>
       <div className="favoriteMovieDiv" >
         <MovieCard movie={movie} />
-        <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>
+        <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => onRemoveFavorite(e, movie)}>
         Delete From Favorites
         </Button>
       </div>

@@ -7,9 +7,12 @@ import { Button } from 'react-bootstrap';
 // styling
 import "./director-view.scss";
 
-export function DirectorView (props) {
-  const { director } = props; 
-  console.log(director);
+export class DirectorView extends React.Component {
+  
+  render(){
+  const { director, onBackClick } = this.props; 
+  
+
   return(
       <div className="director-view">
           <div className="director-name">
@@ -25,7 +28,7 @@ export function DirectorView (props) {
             <span className="value">{director.Birth}</span>      
           </div>
           <Link to={`/`}>
-            <Button id="return" variant='dark'>Return</Button>
+            <Button id="return" variant='dark' onClick={() => { onBackClick(null); }}>Back</Button>
           </Link>
       </div>
- )}
+ )}}

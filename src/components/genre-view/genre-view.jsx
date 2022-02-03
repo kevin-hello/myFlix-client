@@ -5,9 +5,9 @@ import { Col, Button} from 'react-bootstrap';
 //styling
 import "./genre-view.scss";
 
-export function GenreView(props) {
-  const {genre} = props
-  console.log(genre,'genre')
+export class GenreView extends React.Component {
+  render(){
+  const {genre, onBackClick } = this.props;
   
   return(
     <Col className="genre-view">
@@ -20,9 +20,9 @@ export function GenreView(props) {
         <span className="value">{genre.Description}</span>
       </div>
       <Link to={`/`}>
-      <Button id="return" variant='dark'>Return</Button>
+      <Button id="return" variant='dark' onClick={() => onBackClick(null)}>Back</Button>
       </Link>
 
     </Col>
   );
-}
+}}

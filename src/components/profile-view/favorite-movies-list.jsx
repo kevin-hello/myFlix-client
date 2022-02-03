@@ -8,9 +8,25 @@ import { MovieCard } from '../movie-card/movie-card';
 // styling 
 import './profile-view.scss';
 
-export function FavoriteMoviesList({ FavoriteMovies, onRemoveFavorite }) {
+export function FavoriteMoviesList({ FavoriteMovies }) {
 
-
+  onRemoveFavorite = (e, movie) => {
+    const username = localStorage.getItem('user');
+    console.log(username)
+    const token = localStorage.getItem('token');
+    console.log(this.props)
+    axios.delete(`https://my-flix-movies-app.herokuapp.com/users/${username}/movies/${movie._id}`, 
+    { headers: { Authorization: `Bearer ${token}` } }
+    )
+    .then((response) => {
+      console.log(response);
+      alert("movie has been removed from favorites");
+      this.componentDidMount();
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 return(
   <div>
     <h3>Favorite Movies</h3>

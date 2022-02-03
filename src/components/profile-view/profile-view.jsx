@@ -1,9 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 // UI elements 
-import {Button, Card, Col, Form, Row, Container} from 'react-bootstrap';
+import {Button, Col, Form, Row, Container} from 'react-bootstrap';
 
-import { MovieCard } from '../movie-card/movie-card';
 //profile view components 
 import { UserInfo } from './user-info';
 import { FavoriteMoviesList } from './favorite-movies-list';
@@ -48,23 +47,7 @@ export class ProfileView extends React.Component {
         });
     }
 
-  onRemoveFavorite = (e, movie) => {
-    const username = localStorage.getItem('user');
-    console.log(username)
-    const token = localStorage.getItem('token');
-    console.log(this.props)
-    axios.delete(`https://my-flix-movies-app.herokuapp.com/users/${username}/movies/${movie._id}`, 
-    { headers: { Authorization: `Bearer ${token}` } }
-    )
-    .then((response) => {
-      console.log(response);
-      alert("movie has been removed from favorites");
-      this.componentDidMount();
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
+
 
 
   deleteUser() {

@@ -58,7 +58,6 @@ export function LoginView(props) {
     });
   };
   return (
-    <Router basename="/myFlix-client">
                   <Form>
                     <h1>Login</h1>
                     <Form.Group controlId="formUsername">
@@ -92,12 +91,10 @@ export function LoginView(props) {
                     >
                       Login
                       </Button>
-                  </Form>
-
                     <Link to={`/register`} >
-                      Register
+                    <Button id="register" variant="secondary">Register</Button> 
                     </Link>
-          </Router>
+                    </Form>
   );
 }
 

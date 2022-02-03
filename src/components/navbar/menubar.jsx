@@ -6,7 +6,7 @@ export function Menubar ({user}) {
 
   const onLoggedOut = () => {
     localStorage.clear();
-    window.open("/", "_self");
+    window.open("/myFlix-client/", "_self");
   }
 
 
@@ -34,7 +34,6 @@ export function Menubar ({user}) {
               <Link to={`/users/${user}`}>
               <Button className="nav-item" variant="link">{user}</Button> 
               </Link>
-//            <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>
               )}
               {isAuth() && (
               <Link>
@@ -45,13 +44,11 @@ export function Menubar ({user}) {
               <Link to={`/`}>
               <Button className="nav-item" variant="link">Login</Button> 
               </Link>
-//            <Nav.Link href="/">Login</Nav.Link>
               )}
                {!isAuth() && (
               <Link to={`/register`}>
               <Button className="nav-item" variant="link">Register</Button> 
               </Link>
-//            <Nav.Link href="/register">Register</Nav.Link>  
               )}
             </Nav>
           </Navbar.Collapse> 

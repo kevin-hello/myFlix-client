@@ -55,7 +55,7 @@ export function RegistrationView(props) {
         const data = response.data;
         console.log(data);
         alert('Registration successful, please login');
-        window.open('/','_self'); 
+        window.open("/myFlix-client/",'_self');  
         //_self is needed to open page in the current tab
       })
       .catch(response => {

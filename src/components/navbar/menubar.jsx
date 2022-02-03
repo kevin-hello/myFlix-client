@@ -35,10 +35,10 @@ export function Menubar ({user}) {
                 <Button variant="link" onClick={() => { onLoggedOut() }}>Logout</Button>
               )}
               {!isAuth() && (
-                <Nav.Link href="">Login</Nav.Link>
+                <Nav.Link href="/myFlix-client/">Login</Nav.Link>
               )}
                {!isAuth() && (
-                <Nav.Link href="register">Register</Nav.Link>
+                <Nav.Link href="/myFlix-client/register">Register</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse> 

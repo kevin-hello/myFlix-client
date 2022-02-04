@@ -48,14 +48,6 @@ export default class MainView extends React.Component {
   }
   
 
-  // onLoggedOut() {
-  //   localStorage.removeItem("token");
-  //   localStorage.removeItem("user");
-  //   this.setState({
-  //     user:null
-  //   });
-  // }
-
   getMovies(token) {
     axios.get("https://my-flix-movies-app.herokuapp.com/movies", 
     {
@@ -124,11 +116,7 @@ export default class MainView extends React.Component {
         }} />
         </Row>
         </Container>
-      </Router>
-     
-
+      </Router>  
     )
-
   }
-
 }

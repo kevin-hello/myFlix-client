@@ -24,7 +24,7 @@ export function Menubar ({user}) {
 
   return(
     <Navbar className="main-nav" sticky="top" bg="dark" expand="lg" variant="dark">
-      <Link to={`/`} >
+      <Link to={`/`}>
       <Navbar.Brand className="navbar-logo">myFlix</Navbar.Brand>
       </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

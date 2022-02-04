@@ -58,43 +58,27 @@ export function LoginView(props) {
     });
   };
   return (
-                  <Form>
-                    <h1>Login</h1>
-                    <Form.Group controlId="formUsername">
-                      <Form.Label>Username:</Form.Label>
-                      <Form.Control
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Enter Username"
-                      />
-                      {/* code to display validation error message */}
-                      {usernameErr && <p>{usernameErr}</p>}
-                    </Form.Group>
-
-                    <Form.Group controlId="formPassword">
-                      <Form.Label>Password:</Form.Label>
-                      <Form.Control
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password"
-                        />
-                      {/* code to display validation error message */}
-                      {passwordErr && <p>{passwordErr}</p>}
-                    </Form.Group>
-                    <Button
-                      id= "submit"
-                      variant="primary link"
-                      type="submit"
-                      onClick={handleSubmit}
-                    >
-                      Login
-                      </Button>
-                    <Link to={`/register`} >
-                    <Button id="register" variant="secondary">Register</Button> 
-                    </Link>
-                    </Form>
+        <Form>
+            <h1>Login</h1>
+            <div class="form-group">
+              <input type="text" value={username} id="username" name="Username" class="form-control" onChange={e => setUsername(e.target.value)} required/>
+              <label class="form-control-placeholder" for="username">Username</label>
+              {usernameErr && <p>{usernameErr}</p>}
+            </div>
+            <div class="form-group">
+              <input type="password" value={password} id="password" name="Password" class="form-control" onChange={e => setPassword(e.target.value)} required/>
+              <label class="form-control-placeholder" for="password">Password</label>
+              {passwordErr && <p>{passwordErr}</p>}
+            </div>
+            <Button
+            id= "submit"
+            variant="primary link"
+            type="submit"
+            onClick={handleSubmit}>Login</Button>
+            <Link to={`/register`} >
+              <Button id="register" variant="secondary">Register</Button> 
+            </Link>
+        </Form>
   );
 }
 
@@ -105,3 +89,27 @@ LoginView.propTypes = {
   }),
   onLoggedIn: propTypes.func.isRequired,
 }; 
+
+{/* <Form.Group controlId="formUsername">
+<Form.Label>Username:</Form.Label>
+<Form.Control
+  type="text"
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+  placeholder="Enter Username"
+/>
+{/* code to display validation error message */}
+
+// </Form.Group>
+
+// <Form.Group controlId="formPassword">
+// <Form.Label>Password:</Form.Label>
+// <Form.Control
+//   type="password"
+//   value={password}
+//   onChange={(e) => setPassword(e.target.value)}
+//   placeholder="Password"
+//   />
+{/* code to display validation error message */}
+
+{/* </Form.Group> */} 

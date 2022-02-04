@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 // UI elements 
-import {Button, Col, Form, Row, Container} from 'react-bootstrap';
+import {Button, Col, Form, Row, Container, FloatingLabel} from 'react-bootstrap';
 
 //profile view components 
 import { UserInfo } from './user-info';
@@ -145,33 +145,33 @@ console.log(this.state)
         <UserInfo username={ username } email={ email } birthday={ birthday }/>
       <div className="profile-info">
         <Form className="user-form" onSubmit={(e) => this.editUser(e)}>
-          <div>
-            <h3>Update Profile</h3>
-          </div>
-              <Form.Group>
-              Username
-              <Form.Control type='text' name="Username" placeholder="New Username" onChange={(e) => this.setUsername(e.target.value)} required />
-              </Form.Group>
-              <Form.Group>
-              Password
-              <Form.Control type='password' name="Password" placeholder="New Password" onChange={(e) => this.setPassword(e.target.value)} required />
-              </Form.Group>
-              <Form.Group>
-              Email Address
-              <Form.Control type='email' name="Email" placeholder="New Email" onChange={(e) => this.setEmail(e.target.value)} required />
-              </Form.Group>
-              <Form.Group>
-              Birthday
-              <Form.Control type='date' name="Birthday" onChange={(e) => this.setBirthday(e.target.value)} />
-              </Form.Group>
-          <Button id="update" variant="primary" type="submit">Update</Button>
-        </Form>
-      </div>
-        <Row>
+          <h3>Update Profile</h3>
           <Col>
-            <Button id="delete" variant="danger" type="submit" onClick={(e) => this.deleteUser()}>Delete Account</Button>
+            <div class="form-group">
+              <input type="text" id="username" name="Username" class="form-control" onChange={(e) => this.setUsername(e.target.value)} required/>
+              <label class="form-control-placeholder" for="username">New Username</label>
+            </div>
+            <div class="form-group">
+              <input type="password" id="password" name="Password" class="form-control" onChange={(e) => this.setPassword(e.target.value)} required/>
+              <label class="form-control-placeholder" for="password">New Password</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="Email" class="form-control" onChange={(e) => this.setEmail(e.target.value)} required/>
+              <label class="form-control-placeholder" for="email">New Email</label>
+            </div>
+            <div class="form-group">
+              <input type="date" id="birthday" name="Birthday" class="form-control" onChange={(e) => this.setBirthday(e.target.value)} required/>
+              <label class="form-control-placeholder" for="birthday">New Birthday</label>
+            </div>
           </Col>
-        </Row>
+          <Button id="update" variant="primary" type="submit">Update</Button>
+          </Form>
+        </div>
+          <Row>
+            <Col>
+              <Button id="delete" variant="danger" type="submit" onClick={(e) => this.deleteUser()}>Delete Account</Button>
+            </Col>
+          </Row>
         <div>
         <h3>Favorite Movies</h3>
         <Row>

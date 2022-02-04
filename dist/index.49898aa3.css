@@ -2,6 +2,16 @@
   padding: 0%;
   border: 0px solid transparent;
 }
+
+.card-content {
+  text-decoration: none;
+  color: black;
+}
+
+.card-content:hover {
+  text-decoration: none;
+  color: black;
+}
 form #submit {
   margin-top: 10px;
   border: 0px solid transparent;
@@ -11,6 +21,27 @@ form #register {
   margin-top: 10px;
   margin-left: 10px;
   border: 0px solid transparent;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 7px 0 0 13px;
+  transition: all 200ms;
+  opacity: 0.5;
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+  font-size: 75%;
+  transform: translate3d(0, -100%, 0);
+  opacity: 1;
 }
 .movie-view span {
   font-size: x-large;
@@ -52,6 +83,35 @@ form #register {
 #submit {
   margin-top: 5px;
 }
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 7px 0 0 13px;
+  transition: all 200ms;
+  opacity: 0.5;
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+  font-size: 75%;
+  transform: translate3d(0, -100%, 0);
+  opacity: 1;
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+
+input[type=date]:focus::-webkit-datetime-edit {
+  color: black !important;
+}
 .director-view {
   margin-top: 10px;
   font-size: x-large;
@@ -65,12 +125,46 @@ form #register {
   margin: 10px 0 10px 0;
 }
 
+.profile-view {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 #update {
   margin-top: 10px;
 }
 
 #delete {
   margin-bottom: 10px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 7px 0 0 13px;
+  transition: all 200ms;
+  opacity: 0.5;
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+  font-size: 75%;
+  transform: translate3d(0, -100%, 0);
+  opacity: 1;
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+
+input[type=date]:focus::-webkit-datetime-edit {
+  color: black !important;
 }
 .genre-view {
   margin-top: 10px;

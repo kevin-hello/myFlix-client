@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import './registration-view.scss'
 import propTypes from 'prop-types';
 
@@ -68,6 +68,42 @@ export function RegistrationView(props) {
   return (
             <Form>
             <h1>Create Account</h1>
+
+            <div class="form-group">
+              <input type="text" value={username} id="username" name="Username" class="form-control" onChange={e => setUsername(e.target.value)} required/>
+              <label class="form-control-placeholder" for="username">Username</label>
+              {usernameErr && <p>{usernameErr}</p>}
+            </div>
+            <div class="form-group">
+              <input type="password" value={password} id="password" name="Password" class="form-control" onChange={e => setPassword(e.target.value)} required/>
+              <label class="form-control-placeholder" for="password">Password</label>
+              {passwordErr && <p>{passwordErr}</p>}
+            </div>
+            <div class="form-group">
+              <input type="email" value={email} id="email" name="Email" class="form-control" onChange={e => setEmail(e.target.value)} required/>
+              <label class="form-control-placeholder" for="email">Email</label>
+              {emailErr && <p>{emailErr}</p>}
+            </div>
+            <div class="form-group">
+              <input type="date" value={birthday} id="birthday" name="Birthday" class="form-control" onChange={e => setBirthday(e.target.value)} required/>
+              <label class="form-control-placeholder" for="birthday">Birthday</label>
+            </div>
+            <Button id="submit" type="submit" onClick={handleSubmit}>Submit</Button>
+            </Form>
+  );
+}
+
+RegistrationView.propTypes = {
+  register: propTypes.shape({
+    Username: propTypes.string.isRequired,
+    Password: propTypes.string.isRequired,
+    Email: propTypes.string.isRequired,
+    Birthday: propTypes.instanceOf(Date).isRequired,
+  }),
+};
+
+
+            {/* <Form>
             <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
             <Form.Control 
@@ -111,16 +147,4 @@ export function RegistrationView(props) {
             />
             </Form.Group>
             <Button id="submit" type="submit" onClick={handleSubmit}>Submit</Button>
-          </Form>
-   
-  );
-}
-
-RegistrationView.propTypes = {
-  register: propTypes.shape({
-    Username: propTypes.string.isRequired,
-    Password: propTypes.string.isRequired,
-    Email: propTypes.string.isRequired,
-    Birthday: propTypes.instanceOf(Date).isRequired,
-  }),
-};
+            </Form> */}

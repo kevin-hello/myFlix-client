@@ -1,35 +1,45 @@
 import React from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 //UI elements 
-import { Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+
+import { BasicMovieCard } from '../basic-movie-card/basic-movie-card';
+
+
 // styling
 import "./director-view.scss";
 
-export class DirectorView extends React.Component {
-  
-  render(){
-  const { director, onBackClick } = this.props; 
+export function DirectorView({ movie, movies, onBackClick }) {
   
 
   return(
-      <div className="director-view">
-          <div className="director-name">
-            <span className="label">Name: </span>
-            <span className="value">{director.Name}</span> 
-          </div>
-          <div className="director-bio">
+    <Container>
+    <Row>
+      <Col className="director-view">
+        <h1>{movie.Director.Name}</h1>
+        <div className="director-bio">
             <span className="label">Biography: </span>
-            <span className="value">{director.Bio}</span>     
+            <span className="value">{movie.Director.Bio}</span>     
           </div>  
           <div className="director-birthyear">
             <span className="label">Year of Birth: </span>
-            <span className="value">{director.Birth}</span>      
+            <span className="value">{movie.Director.Birth}</span>      
           </div>
-          <Link to={`/`}>
-            <Button id="return" variant="secondary" onClick={() => { onBackClick(null); }}>Back</Button>
-          </Link>
-      </div>
+        <Button id="return" variant="secondary" onClick={() => onBackClick()}>Back</Button>
+      </Col>
+    </Row>
+    <Row className='director-title'>
+      <h3>{movie.Director.Name} Movies</h3>
+    </Row>
+    <Row>
+      { movies && movies.map((movie) => (
+      <Col md={3} key={movie._id}>
+        <div className="directorMovieDiv" >
+        <BasicMovieCard movie={movie} />
+        </div>
+      </Col> ))}
+    </Row>
+
+</Container>
  );
-}}
+}

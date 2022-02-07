@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 // UI elements 
-import {Button, Col, Form, Row, Container, FloatingLabel} from 'react-bootstrap';
+import {Button, Col, Form, Row, Container } from 'react-bootstrap';
 
 //profile view components 
 import { UserInfo } from './user-info';

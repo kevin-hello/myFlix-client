@@ -99,16 +99,16 @@ export default class MainView extends React.Component {
         <Route path="/genres/:name" render={({ match, history }) => {
           if (movies.length === 0) return <div className="main-view" />;
           return <Col>
-          <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
+          <GenreView movie={movies.find(m => m.Genre.Name === match.params.name)} onBackClick={() => history.goBack()} movies={movies.filter(m => m.Genre.Name === match.params.name)} />
           </Col>
         }} />
         <Route path="/directors/:name" render={({ match, history }) => {
           if (movies.length === 0) return <div className="main-view" />;
           return <Col>
-          <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+          <DirectorView movie={movies.find(m => m.Director.Name === match.params.name)} onBackClick={() => history.goBack()} movies={movies.filter(m => m.Director.Name === match.params.name)} />
           </Col>
         }} />
-        <Route path={`/users/${user}`} render={({ match, history }) => {
+        <Route path={`/users/${user}`} render={({ history }) => {
           if (!user) return <Redirect to="/" /> 
           return <Col>
           <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />

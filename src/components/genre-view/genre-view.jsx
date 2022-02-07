@@ -23,15 +23,13 @@ export function GenreView ({movie, movies, onBackClick}) {
       <Button id="return" variant="secondary" onClick={() => onBackClick()}>Back</Button>
     </Col>
     </Row>
-    <Row className='genre-title'>
+    <Row className='genre-movies'>
       <h3>{movie.Genre.Name} Movies</h3>
     </Row>
-    <Row>
+    <Row className='movie-div'>
     { movies && movies.map((movie) => (
-    <Col md={3} key={movie._id}>
-    <div className="genreMovieDiv" >
+    <Col className='genre-movie-cards' md={3} key={movie._id}>
     <BasicMovieCard movie={movie} />
-    </div>
     </Col> ))}
     </Row>
 

@@ -31,15 +31,13 @@ export function DirectorView({ movie, movies, onBackClick }) {
         <Button id="return" variant="secondary" onClick={() => onBackClick()}>Back</Button>
       </Col>
     </Row>
-    <Row className='director-title'>
+    <Row className='director-movies'>
       <h3>{movie.Director.Name} Movies</h3>
     </Row>
-    <Row>
+    <Row className='movie-div'>
       { movies && movies.map((movie) => (
-      <Col md={3} key={movie._id}>
-        <div className="directorMovieDiv" >
+      <Col className='dir-movie-cards' md={3} key={movie._id}>
         <BasicMovieCard movie={movie} />
-        </div>
       </Col> ))}
     </Row>
 

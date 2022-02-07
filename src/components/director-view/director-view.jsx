@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 
 //UI elements 
 import { Container, Row, Col, Button } from 'react-bootstrap';
@@ -19,11 +20,13 @@ export function DirectorView({ movie, movies, onBackClick }) {
         <h1>{movie.Director.Name}</h1>
         <div className="director-bio">
             <span className="label">Biography: </span>
-            <span className="value">{movie.Director.Bio}</span>     
+            <span className="value">{movie.Director.Bio}</span>    
           </div>  
           <div className="director-birthyear">
             <span className="label">Year of Birth: </span>
-            <span className="value">{movie.Director.Birth}</span>      
+            <Moment format="YYYY">
+            {movie.Director.Birth}
+            </Moment>
           </div>
         <Button id="return" variant="secondary" onClick={() => onBackClick()}>Back</Button>
       </Col>

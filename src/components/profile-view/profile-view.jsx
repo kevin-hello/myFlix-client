@@ -137,7 +137,7 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { username, email, birthday, FavoriteMovies, onRemoveFavorite } = this.state
+    const { username, email, birthday, FavoriteMovies } = this.state
 console.log(this.state)
 
     return (

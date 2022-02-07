@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-
+import Moment from 'react-moment';
 // styling 
 import './profile-view.scss';
 
@@ -15,7 +15,11 @@ export function UserInfo({username, email, birthday}){
     <h4>Username: {username}</h4>
     <h4>Password: ******</h4>
     <h4>Email: {email}</h4>
-    <h4>Birthday: {birthday}</h4>
+    <h4>Birthday: 
+      <Moment format="MM/DD/YYYY">
+        {birthday}
+      </Moment>
+      </h4>
     </Col>
     </Row>
   )

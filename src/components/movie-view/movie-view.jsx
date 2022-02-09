@@ -39,12 +39,8 @@ constructor(props) {
         <div className="movie-poster">
           <img width = "100%"  src={movie.ImagePath}/>
           </div>
-          <div className="movie-title">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
-        </div>
+          <h2>{movie.Title}</h2>
         <div className="movie-description">
-          <span className="label">Description: </span>
           <span className="value">{movie.Description}</span>
         </div>
         <div className="movie-genre">
@@ -82,5 +78,11 @@ MovieView.propTypes = {
     ImagePath: propTypes.string.isRequired,
     Featured: propTypes.boolean,
     Trailer: propTypes.string.isRequired,
-  }),
+  }).isRequired,
+  user: propTypes.shape({
+    Username: propTypes.string.isRequired,
+    FavoriteMovies: propTypes.array.isRequired
+  }).isRequired,
+  addFavoriteMovie: propTypes.func.isRequired,
+  onBackClick: propTypes.func.isRequired
 };

@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import propTypes from 'prop-types';
+
 // UI elements 
 import {Button, Col, Form, Row, Container } from 'react-bootstrap';
 
@@ -147,21 +149,21 @@ console.log(this.state)
         <Form className="user-form" onSubmit={(e) => this.editUser(e)}>
           <h3>Update Profile</h3>
           <Col>
-            <div class="form-group">
-              <input type="text" id="username" name="Username" class="form-control" onChange={(e) => this.setUsername(e.target.value)} required/>
-              <label class="form-control-placeholder" for="username">New Username</label>
+            <div className="form-group">
+              <input type="text" id="username" name="Username" className="form-control" onChange={(e) => this.setUsername(e.target.value)} required/>
+              <label className="form-control-placeholder" htmlFor="username">New Username</label>
             </div>
-            <div class="form-group">
-              <input type="password" id="password" name="Password" class="form-control" onChange={(e) => this.setPassword(e.target.value)} required/>
-              <label class="form-control-placeholder" for="password">New Password</label>
+            <div className="form-group">
+              <input type="password" id="password" name="Password" className="form-control" onChange={(e) => this.setPassword(e.target.value)} required/>
+              <label className="form-control-placeholder" htmlFor="password">New Password</label>
             </div>
-            <div class="form-group">
-              <input type="email" id="email" name="Email" class="form-control" onChange={(e) => this.setEmail(e.target.value)} required/>
-              <label class="form-control-placeholder" for="email">New Email</label>
+            <div className="form-group">
+              <input type="email" id="email" name="Email" className="form-control" onChange={(e) => this.setEmail(e.target.value)} required/>
+              <label className="form-control-placeholder" htmlFor="email">New Email</label>
             </div>
-            <div class="form-group">
-              <input type="date" id="birthday" name="Birthday" class="form-control" onChange={(e) => this.setBirthday(e.target.value)} required/>
-              <label class="form-control-placeholder" for="birthday">New Birthday</label>
+            <div className="form-group">
+              <input type="date" id="birthday" name="Birthday" className="form-control" onChange={(e) => this.setBirthday(e.target.value)} required/>
+              <label className="form-control-placeholder" htmlFor="birthday">New Birthday</label>
             </div>
           </Col>
           <Button id="update" variant="primary" type="submit">Update</Button>
@@ -191,3 +193,14 @@ console.log(this.state)
   }
 }
 
+ProfileView.propTypes = {
+  user: propTypes.shape({
+    Username: propTypes.string.isRequired,
+    Password: propTypes.string.isRequired,
+    Email: propTypes.string.isRequired,
+    Birthday: propTypes.date,
+    FavoriteMovies: propTypes.array
+  }).isRequired,
+  editUser: propTypes.func.isRequired,
+  deleteUser: propTypes.func.isRequired,
+}

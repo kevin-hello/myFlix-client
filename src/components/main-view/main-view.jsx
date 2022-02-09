@@ -1,10 +1,9 @@
 import React from "react";
 import axios from "axios";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { LoginView } from "../login-view/login-view";
-import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { RegistrationView } from "../registration-view/registration-view";
 import { DirectorView } from "../director-view/director-view";
@@ -13,15 +12,19 @@ import { GenreView } from "../genre-view/genre-view";
 import { Menubar } from "../navbar/menubar";
 import { Row, Col, Container } from "react-bootstrap";
 
+import { setMovies } from '../../actions/actions';
+
+import MoviesList from '../movies-list/movies-list';
+
 import "./main-view.scss";
+import { connect } from "react-redux";
 
 
-export default class MainView extends React.Component {
+class MainView extends React.Component {
 
   constructor(){
     super();
     this.state = {
-      movies: [],
       user: null
     };
   }
@@ -55,9 +58,8 @@ export default class MainView extends React.Component {
     })
     .then(response => {
       // Assign the result to the state
-      this.setState({
-        movies: response.data
-      });
+        this.props.setMovies(response.data);
+ 
     })
     .catch(function (error) {
       console.log(error);
@@ -65,7 +67,8 @@ export default class MainView extends React.Component {
   }
 
   render(){
-     const { movies, user } = this.state;
+     let { movies } = this.props;
+     let { user } = this.state;
    
     return (
       <Router basename="/myFlix-client">
@@ -79,17 +82,13 @@ export default class MainView extends React.Component {
 
           if (movies.length === 0) return <div className="main-view"/>; 
 
-          return movies.map(m => (
-            <Col sm={12} md={6} lg={4} key={m._id}>
-            <MovieCard movie={m}/>
-            </Col>
-          ))
+          return <MoviesList movies={movies}/>;
+
         }} />
         <Route path="/register" render={() => {
           if (user) return <Redirect to="/" />
-          return <Col>
-            <RegistrationView />
-          </Col>
+          return <Col><RegistrationView /> </Col>
+
         }} />
         <Route path="/movies/:id" render={({ match, history}) => {
           return <Col md={12}>
@@ -97,13 +96,13 @@ export default class MainView extends React.Component {
           </Col>
         }} />
         <Route path="/genres/:name" render={({ match, history }) => {
-          if (movies.length === 0) return <div className="main-view" />;
+          if (movies.length === 0) return <div className="main-view"/>; 
           return <Col>
           <GenreView movie={movies.find(m => m.Genre.Name === match.params.name)} onBackClick={() => history.goBack()} movies={movies.filter(m => m.Genre.Name === match.params.name)} />
           </Col>
         }} />
         <Route path="/directors/:name" render={({ match, history }) => {
-          if (movies.length === 0) return <div className="main-view" />;
+          if (movies.length === 0) return <div className="main-view"/>; 
           return <Col>
           <DirectorView movie={movies.find(m => m.Director.Name === match.params.name)} onBackClick={() => history.goBack()} movies={movies.filter(m => m.Director.Name === match.params.name)} />
           </Col>
@@ -117,6 +116,11 @@ export default class MainView extends React.Component {
         </Row>
         </Container>
       </Router>  
-    )
+    );
   }
 }
+
+let mapStateToProps = state => {
+  return{ movies: state.movies }
+}
+export default connect(mapStateToProps, { setMovies })(MainView);

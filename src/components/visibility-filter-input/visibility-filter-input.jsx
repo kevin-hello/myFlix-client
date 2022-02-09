@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Form, Col } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 import "./visibility-filter-input.scss";
 
@@ -13,7 +13,7 @@ function VisibilityFilterInput(props) {
     value={props.visibilityFilter}
     placeholder="Search"
   />
-  )  
+  );  
 }
 
 export default connect(null, { setFilter })(VisibilityFilterInput);

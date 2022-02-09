@@ -89,27 +89,3 @@ LoginView.propTypes = {
   }),
   onLoggedIn: propTypes.func.isRequired,
 }; 
-
-{/* <Form.Group controlId="formUsername">
-<Form.Label>Username:</Form.Label>
-<Form.Control
-  type="text"
-  value={username}
-  onChange={(e) => setUsername(e.target.value)}
-  placeholder="Enter Username"
-/>
-{/* code to display validation error message */}
-
-// </Form.Group>
-
-// <Form.Group controlId="formPassword">
-// <Form.Label>Password:</Form.Label>
-// <Form.Control
-//   type="password"
-//   value={password}
-//   onChange={(e) => setPassword(e.target.value)}
-//   placeholder="Password"
-//   />
-{/* code to display validation error message */}
-
-{/* </Form.Group> */} 

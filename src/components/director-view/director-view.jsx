@@ -1,5 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
+import propTypes from 'prop-types';
 
 //UI elements 
 import { Container, Row, Col, Button } from 'react-bootstrap';
@@ -28,7 +29,7 @@ export function DirectorView({ movie, movies, onBackClick }) {
             {movie.Director.Birth}
             </Moment>
           </div>
-        <Button id="return" variant="secondary" onClick={() => onBackClick()}>Back</Button>
+        <Button id="return" variant="primary" onClick={() => onBackClick()}>Back</Button>
       </Col>
     </Row>
     <Row className='director-movies'>
@@ -40,7 +41,16 @@ export function DirectorView({ movie, movies, onBackClick }) {
         <BasicMovieCard movie={movie} />
       </Col> ))}
     </Row>
-
 </Container>
  );
 }
+
+DirectorView.propTypes ={
+  movie: propTypes.shape({
+    Director: propTypes.shape({
+      Name: propTypes.string.isRequired,
+      Bio: propTypes.string.isRequired,
+      Birth: propTypes.string.isRequired}).isRequired }).isRequired,
+      onBackClick: propTypes.func.isRequired
+}
+

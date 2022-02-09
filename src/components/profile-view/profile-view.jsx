@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import propTypes from 'prop-types';
+
 // UI elements 
 import {Button, Col, Form, Row, Container } from 'react-bootstrap';
 
@@ -191,3 +193,14 @@ console.log(this.state)
   }
 }
 
+ProfileView.propTypes = {
+  user: propTypes.shape({
+    Username: propTypes.string.isRequired,
+    Password: propTypes.string.isRequired,
+    Email: propTypes.string.isRequired,
+    Birthday: propTypes.date,
+    FavoriteMovies: propTypes.array
+  }).isRequired,
+  editUser: propTypes.func.isRequired,
+  deleteUser: propTypes.func.isRequired,
+}

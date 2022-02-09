@@ -1,4 +1,6 @@
 import React from 'react';
+import propTypes from 'prop-types';
+
 //UI elements
 import { Row, Col, Button, Container} from 'react-bootstrap';
 
@@ -17,10 +19,9 @@ export function GenreView ({movie, movies, onBackClick}) {
         <h1>{movie.Genre.Name}</h1>
       </div>
       <div className="genre-description">
-        <span className="label">Description: </span>
         <span className="value">{movie.Genre.Description}</span>
       </div>
-      <Button id="return" variant="secondary" onClick={() => onBackClick()}>Back</Button>
+      <Button id="return" variant="primary" onClick={() => onBackClick()}>Back</Button>
     </Col>
     </Row>
     <Row className='genre-movies'>
@@ -37,4 +38,14 @@ export function GenreView ({movie, movies, onBackClick}) {
 </Container>
 
   );
+}
+
+GenreView.propTypes = {
+  movie: propTypes.shape({
+    Genre: propTypes.shape({
+      Name: propTypes.string.isRequired,
+      Description: propTypes.string.isRequired, 
+    }).isRequired
+  }).isRequired,
+  onBackClick: propTypes.func.isRequired
 }

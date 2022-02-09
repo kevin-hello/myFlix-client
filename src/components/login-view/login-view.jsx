@@ -60,14 +60,14 @@ export function LoginView(props) {
   return (
         <Form>
             <h1>Login</h1>
-            <div class="form-group">
-              <input type="text" value={username} id="username" name="Username" class="form-control" onChange={e => setUsername(e.target.value)} required/>
-              <label class="form-control-placeholder" for="username">Username</label>
+            <div className="form-group">
+              <input type="text" value={username} id="username" name="Username" className="form-control" onChange={e => setUsername(e.target.value)} required/>
+              <label className="form-control-placeholder" htmlFor="username">Username</label>
               {usernameErr && <p>{usernameErr}</p>}
             </div>
-            <div class="form-group">
-              <input type="password" value={password} id="password" name="Password" class="form-control" onChange={e => setPassword(e.target.value)} required/>
-              <label class="form-control-placeholder" for="password">Password</label>
+            <div className="form-group">
+              <input type="password" value={password} id="password" name="Password" className="form-control" onChange={e => setPassword(e.target.value)} required/>
+              <label className="form-control-placeholder" htmlFor="password">Password</label>
               {passwordErr && <p>{passwordErr}</p>}
             </div>
             <Button

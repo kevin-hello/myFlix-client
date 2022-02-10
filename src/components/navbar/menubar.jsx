@@ -1,9 +1,8 @@
 import React from 'react';
 import {Navbar, Nav, Button, Form} from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
-import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input';
+import { Link } from 'react-router-dom';
 
-export function Menubar ({user, visibilityFilter, props}) {
+export function Menubar ({ user }) {
 
   const onLoggedOut = () => {
     localStorage.clear();
@@ -43,6 +42,7 @@ export function Menubar ({user, visibilityFilter, props}) {
               <Button style={{color:"white"}} className="nav-item" variant="link">{user}</Button> 
               </Link>
               )}
+
               {isAuth() && (
               <Link>
               <Button style={{color:"white"}} className="nav-item" variant="link" onClick={() => { onLoggedOut() }}>Logout</Button>

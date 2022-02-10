@@ -71,8 +71,7 @@ class MainView extends React.Component {
      let { user } = this.state;
    
     return (
-      <Router > 
-        //basename="/myFlix-client"
+      <Router basename="/myFlix-client">
         <Menubar user={user}/>
         <Container>
         <Row className="main-view justify-content-md-center">

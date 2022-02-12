@@ -1,0 +1,28 @@
+.search-input {
+  display: flex;
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  margin-left: 12em;
+  margin-right: 1em;
+
+}
+.search-bar-small-screen{
+  display: none;
+}
+
+@media (max-width: 992px) {
+
+.search-input {
+display: none;
+}
+.search-bar-small-screen{
+  display: initial ;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+  padding-right: 0;
+  padding-left: 0;
+  width: 100%;
+}
+}
+

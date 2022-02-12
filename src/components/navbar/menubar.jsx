@@ -1,13 +1,15 @@
 import React from 'react';
 import {Navbar, Nav, Button, Form} from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Route} from 'react-router-dom';
 import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input';
 
-export function Menubar ({user, visibilityFilter, props}) {
+import './menubar.scss';
+
+export function Menubar ({user, visibilityFilter}) {
 
   const onLoggedOut = () => {
     localStorage.clear();
-    window.open("/myFlix-client/", "_self");
+    window.open("/", "_self");
   }
 
 
@@ -29,7 +31,11 @@ export function Menubar ({user, visibilityFilter, props}) {
       <Link to={`/`}>
       <Navbar.Brand className="navbar-logo">myFlix</Navbar.Brand>
       </Link>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          {isAuth() && (
+          <Route exact path="/" render={() => <Form className="search-input"><VisibilityFilterInput visibilityFilter={visibilityFilter} /></Form>}/>
+          )}
+
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" className='nav-toggle-icon' />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="nav-list ml-auto">
 
@@ -59,7 +65,6 @@ export function Menubar ({user, visibilityFilter, props}) {
               </Link>
               )}
             </Nav>
-
           </Navbar.Collapse> 
     </Navbar>
   );

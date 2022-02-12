@@ -21,9 +21,9 @@ if (visibilityFilter !== '' ) {
 if (!movies) return <div className="main-view"/>;
 
 return <>
-<Col md={12} className="search-bar">
-  <VisibilityFilterInput visibilityFilter={visibilityFilter} />
-</Col>
+    <Col md={12} className="search-bar-small-screen">
+    <VisibilityFilterInput visibilityFilter={visibilityFilter} />
+    </Col>
     {filteredMovies.map(m=> (
     <Col className="card-div"sm={12} md={6} lg={4} key={m._id}>
       <MovieCard movie={m}/>

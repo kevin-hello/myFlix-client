@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ea191de3-ae71-46c3-8865-9138fb2f76a9/deploy-status)](https://app.netlify.com/sites/myflix-basic-app/deploys)
 myFlix App
 
 This app is a front-end of a REST API using ReactJS and Redux. The back-end was built using mongoDB, expressJS and nodeJS.
@@ -15,4 +16,4 @@ What this app does:
 •	Users can update their account info
 •	Users can delete their account
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ea191de3-ae71-46c3-8865-9138fb2f76a9/deploy-status)](https://app.netlify.com/sites/myflix-basic-app/deploys)
+

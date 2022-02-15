@@ -18,10 +18,10 @@ export class ProfileView extends React.Component {
   constructor() {
     super();
     this.state={
-      username: null,
-      password: null,
-      email: null,
-      birthday: null,
+      Username: null,
+      Password: null,
+      Email: null,
+      Birthday: null,
       FavoriteMovies: [],
     };
   }
@@ -39,10 +39,10 @@ export class ProfileView extends React.Component {
         })
         .then((response) => {
           this.setState({
-            username: response.data.Username,
-            password: response.data.Password,
-            email: response.data.Email,
-            birthday: response.data.Birthday,
+            Username: response.data.Username,
+            Password: response.data.Password,
+            Email: response.data.Email,
+            Birthday: response.data.Birthday,
             FavoriteMovies: response.data.FavoriteMovies
           });
         })
@@ -53,14 +53,11 @@ export class ProfileView extends React.Component {
 
   onRemoveFavorite = (e, movie) => {
     const username = localStorage.getItem('user');
-    console.log(username)
     const token = localStorage.getItem('token');
-    console.log(this.props)
     axios.delete(`https://my-flix-movies-app.herokuapp.com/users/${username}/movies/${movie._id}`, 
     { headers: { Authorization: `Bearer ${token}` } }
     )
     .then((response) => {
-      console.log(response);
       alert("movie has been removed from favorites");
       this.componentDidMount();
     })
@@ -112,10 +109,13 @@ export class ProfileView extends React.Component {
       });
       localStorage.setItem('user', response.data.Username);
       const data = response.data;
-      console.log(data);
-      console.log(this.state.Username);
+      this.setState({
+        Username: data.Username,
+        Password: data.Password,
+        Email: data.Email,
+        Birthday: data.Birthday
+      });
       alert('Profile updated');
-      window.open(`/myFlix-client/users/${username}`,'_self'); 
     })
     .catch( function(error){
       console.log(error);
@@ -123,7 +123,7 @@ export class ProfileView extends React.Component {
   }
 
   setUsername(value) {
-    this.state.Username = value;
+    this.state.Username= value;
   }
 
   setPassword(value) {
@@ -139,12 +139,10 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { username, email, birthday, FavoriteMovies } = this.state
-console.log(this.state)
-
+    const { Username, Email, Birthday, FavoriteMovies } = this.state;
     return (
       <Container className="profile-view">
-        <UserInfo username={ username } email={ email } birthday={ birthday }/>
+        <UserInfo Username={ Username } Email={ Email } Birthday={ Birthday ? Birthday.split("T")[0] : Birthday }/>
       <div className="profile-info">
         <Form className="user-form" onSubmit={(e) => this.editUser(e)}>
           <h3>Update Profile</h3>

@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 // styling 
 import './profile-view.scss';
 
-export function UserInfo({username, email, birthday}){
+export function UserInfo({Username, Email, Birthday}){
 
   return(
     <Row className="justify-content-md-center">
@@ -12,13 +12,11 @@ export function UserInfo({username, email, birthday}){
     <div className="profileContent">
       <h1>My Profile</h1>
     </div>
-    <h4>Username: {username}</h4>
+    <h4>Username: {Username}</h4>
     <h4>Password: ******</h4>
-    <h4>Email: {email}</h4>
+    <h4>Email: {Email}</h4>
     <h4>Birthday: 
-      <Moment format="MM/DD/YYYY">
-        {birthday}
-      </Moment>
+        {Birthday}
       </h4>
     </Col>
     </Row>

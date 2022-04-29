@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 //UI components 
-import {Button} from 'react-bootstrap';
+import {Col, Row, Button} from 'react-bootstrap';
 //styling
 import './movie-view.scss';
 
@@ -35,10 +35,11 @@ constructor(props) {
     const {movie, onBackClick} = this.props;
 
     return (
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img width = "100%"  src={movie.ImagePath}/>
-          </div>
+      <Row className="movie-view">
+        <Col sm={12} md={4} className="movie-poster">
+          <img height = "600px" width="auto"  src={movie.ImagePath}/>
+          </Col>
+          <Col sm={12} md={8}>
           <h2>{movie.Title}</h2>
         <div className="movie-description">
           <span className="value">{movie.Description}</span>
@@ -60,7 +61,8 @@ constructor(props) {
         </div>
         <Button variant="primary" id="back" onClick={() => { onBackClick(null);}}>Back</Button>
         <Button variant="danger" id="favmovie" value={movie._id} onClick={(e) => this.addFavoriteMovie(e, movie)}>Add to favorites</Button>
-       </div>
+        </Col>
+       </Row>
     );
   }
 }

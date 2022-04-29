@@ -76,7 +76,7 @@ export class ProfileView extends React.Component {
       { headers: {Authorization: `Bearer ${token}`} }
       )
       .then(() => {
-        alert(`${username} "has been deleted.`);
+        alert(`${username} has been deleted.`);
         localStorage.removeItem('username');
         localStorage.removeItem('token');
         window.open("/",'_self'); 

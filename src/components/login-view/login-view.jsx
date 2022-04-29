@@ -58,7 +58,7 @@ export function LoginView(props) {
     });
   };
   return (
-        <Form>
+        <Form id="login-form">
             <h1>Login</h1>
             <div className="form-group">
               <input type="text" value={username} id="username" name="Username" className="form-control" onChange={e => setUsername(e.target.value)} required/>

@@ -29,3 +29,9 @@ input[type=date]:required:invalid::-webkit-datetime-edit {
 input[type=date]:focus::-webkit-datetime-edit {
   color: black !important;
 }
+
+#register-form{
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10px;
+}

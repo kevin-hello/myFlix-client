@@ -66,7 +66,7 @@ export function RegistrationView(props) {
   };
 
   return (
-            <Form>
+            <Form id="register-form">
             <h1>Create Account</h1>
 
             <div className="form-group">

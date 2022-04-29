@@ -71,7 +71,7 @@ export class ProfileView extends React.Component {
     const confirmation = window.confirm("Are you sure you want to delete your account?");
     if (confirmation) {
       const token = localStorage.getItem('token');
-      const user = localStorage.getItem('user');
+      const username = localStorage.getItem('user');
       axios.delete(`https://my-flix-movies-app.herokuapp.com/users/${username}`,
       { headers: {Authorization: `Bearer ${token}`} }
       )

@@ -37,7 +37,7 @@ constructor(props) {
     return (
       <Row className="movie-view">
         <Col sm={12} md={4} className="movie-poster">
-          <img height = "600px" width="auto"  src={movie.ImagePath}/>
+          <img height = "auto" width="100%"  src={movie.ImagePath}/>
           </Col>
           <Col sm={12} md={8}>
           <h2>{movie.Title}</h2>
